@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "rachadinha",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-03-29T04:02:41.680Z"
+}

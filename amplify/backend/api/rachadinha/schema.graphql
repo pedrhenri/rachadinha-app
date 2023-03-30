@@ -1,0 +1,46 @@
+type Todo @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type Pagamento @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  valorPago: Float
+  participante: Participante! @hasOne
+  compraID: ID! @index(name: "byCompra")
+}
+
+type Compra @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  valorTotal: Float
+  participantes: [Participante!] @hasMany(indexName: "byCompra", fields: ["id"])
+  pagamentos: [Pagamento!] @hasMany(indexName: "byCompra", fields: ["id"])
+}
+
+type Participante @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  email: String!
+  compraID: ID! @index(name: "byCompra")
+}
+
+type Blog @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  posts: [Post] @hasMany
+}
+
+type Post @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  blog: Blog @belongsTo
+  comments: [Comment] @hasMany
+}
+
+type Comment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  post: Post @belongsTo
+  content: String!
+}
+ 

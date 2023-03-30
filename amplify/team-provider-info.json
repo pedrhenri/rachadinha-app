@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-rachadinha-dev-03827-authRole",
+      "UnauthRoleArn": "arn:aws:iam::554500330924:role/amplify-rachadinha-dev-03827-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::554500330924:role/amplify-rachadinha-dev-03827-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-rachadinha-dev-03827-deployment",
+      "UnauthRoleName": "amplify-rachadinha-dev-03827-unauthRole",
+      "StackName": "amplify-rachadinha-dev-03827",
+      "StackId": "arn:aws:cloudformation:us-east-1:554500330924:stack/amplify-rachadinha-dev-03827/2ce1cfe0-cde3-11ed-99a6-0e314b4fc9fb",
+      "AmplifyAppId": "d1fz9q85fyk6pk"
+    },
+    "categories": {
+      "api": {
+        "rachadinha": {}
+      },
+      "auth": {
+        "rachadinha67161258": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1fz9q85fyk6pk",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
