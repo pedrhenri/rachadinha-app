@@ -38,7 +38,15 @@
     "categories": {
       "auth": {
         "rachadinha67161258": {},
-        "rachadinha03ad2b06": {}
+        "rachadinha03ad2b06": {},
+        "rachadinhafe771345": {},
+        "rachadinha": {}
+      },
+      "api": {
+        "rachadinha": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   },
