@@ -1,36 +1,117 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onCreateTodo(filter: $filter) {
+export const onCreateParticipante = /* GraphQL */ `
+  subscription OnCreateParticipante(
+    $filter: ModelSubscriptionParticipanteFilterInput
+  ) {
+    onCreateParticipante(filter: $filter) {
       id
-      name
-      description
+      nome
+      email
+      compraID
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onUpdateTodo(filter: $filter) {
+export const onUpdateParticipante = /* GraphQL */ `
+  subscription OnUpdateParticipante(
+    $filter: ModelSubscriptionParticipanteFilterInput
+  ) {
+    onUpdateParticipante(filter: $filter) {
       id
-      name
-      description
+      nome
+      email
+      compraID
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onDeleteTodo(filter: $filter) {
+export const onDeleteParticipante = /* GraphQL */ `
+  subscription OnDeleteParticipante(
+    $filter: ModelSubscriptionParticipanteFilterInput
+  ) {
+    onDeleteParticipante(filter: $filter) {
       id
-      name
-      description
+      nome
+      email
+      compraID
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateCompra = /* GraphQL */ `
+  subscription OnCreateCompra($filter: ModelSubscriptionCompraFilterInput) {
+    onCreateCompra(filter: $filter) {
+      id
+      valorTotal
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      participantes {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateCompra = /* GraphQL */ `
+  subscription OnUpdateCompra($filter: ModelSubscriptionCompraFilterInput) {
+    onUpdateCompra(filter: $filter) {
+      id
+      valorTotal
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      participantes {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteCompra = /* GraphQL */ `
+  subscription OnDeleteCompra($filter: ModelSubscriptionCompraFilterInput) {
+    onDeleteCompra(filter: $filter) {
+      id
+      valorTotal
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      participantes {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -41,18 +122,12 @@ export const onCreatePagamento = /* GraphQL */ `
     onCreatePagamento(filter: $filter) {
       id
       valorPago
-      participante {
-        id
-        name
-        email
-        compraID
-        createdAt
-        updatedAt
-      }
       compraID
       createdAt
       updatedAt
-      pagamentoParticipanteId
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -63,18 +138,12 @@ export const onUpdatePagamento = /* GraphQL */ `
     onUpdatePagamento(filter: $filter) {
       id
       valorPago
-      participante {
-        id
-        name
-        email
-        compraID
-        createdAt
-        updatedAt
-      }
       compraID
       createdAt
       updatedAt
-      pagamentoParticipanteId
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -85,108 +154,12 @@ export const onDeletePagamento = /* GraphQL */ `
     onDeletePagamento(filter: $filter) {
       id
       valorPago
-      participante {
-        id
-        name
-        email
-        compraID
-        createdAt
-        updatedAt
-      }
       compraID
       createdAt
       updatedAt
-      pagamentoParticipanteId
-    }
-  }
-`;
-export const onCreateCompra = /* GraphQL */ `
-  subscription OnCreateCompra($filter: ModelSubscriptionCompraFilterInput) {
-    onCreateCompra(filter: $filter) {
-      id
-      valorTotal
-      participantes {
-        nextToken
-      }
-      pagamentos {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateCompra = /* GraphQL */ `
-  subscription OnUpdateCompra($filter: ModelSubscriptionCompraFilterInput) {
-    onUpdateCompra(filter: $filter) {
-      id
-      valorTotal
-      participantes {
-        nextToken
-      }
-      pagamentos {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteCompra = /* GraphQL */ `
-  subscription OnDeleteCompra($filter: ModelSubscriptionCompraFilterInput) {
-    onDeleteCompra(filter: $filter) {
-      id
-      valorTotal
-      participantes {
-        nextToken
-      }
-      pagamentos {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateParticipante = /* GraphQL */ `
-  subscription OnCreateParticipante(
-    $filter: ModelSubscriptionParticipanteFilterInput
-  ) {
-    onCreateParticipante(filter: $filter) {
-      id
-      name
-      email
-      compraID
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateParticipante = /* GraphQL */ `
-  subscription OnUpdateParticipante(
-    $filter: ModelSubscriptionParticipanteFilterInput
-  ) {
-    onUpdateParticipante(filter: $filter) {
-      id
-      name
-      email
-      compraID
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteParticipante = /* GraphQL */ `
-  subscription OnDeleteParticipante(
-    $filter: ModelSubscriptionParticipanteFilterInput
-  ) {
-    onDeleteParticipante(filter: $filter) {
-      id
-      name
-      email
-      compraID
-      createdAt
-      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -197,9 +170,13 @@ export const onCreateBlog = /* GraphQL */ `
       name
       posts {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -210,9 +187,13 @@ export const onUpdateBlog = /* GraphQL */ `
       name
       posts {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -223,9 +204,13 @@ export const onDeleteBlog = /* GraphQL */ `
       name
       posts {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -239,12 +224,19 @@ export const onCreatePost = /* GraphQL */ `
         name
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       comments {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       blogPostsId
     }
   }
@@ -259,12 +251,19 @@ export const onUpdatePost = /* GraphQL */ `
         name
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       comments {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       blogPostsId
     }
   }
@@ -279,12 +278,19 @@ export const onDeletePost = /* GraphQL */ `
         name
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       comments {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       blogPostsId
     }
   }
@@ -298,11 +304,17 @@ export const onCreateComment = /* GraphQL */ `
         title
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
         blogPostsId
       }
       content
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       postCommentsId
     }
   }
@@ -316,11 +328,17 @@ export const onUpdateComment = /* GraphQL */ `
         title
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
         blogPostsId
       }
       content
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       postCommentsId
     }
   }
@@ -334,11 +352,17 @@ export const onDeleteComment = /* GraphQL */ `
         title
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
         blogPostsId
       }
       content
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       postCommentsId
     }
   }

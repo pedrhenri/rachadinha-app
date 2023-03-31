@@ -1,114 +1,57 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTodo = /* GraphQL */ `
-  mutation CreateTodo(
-    $input: CreateTodoInput!
-    $condition: ModelTodoConditionInput
+export const createParticipante = /* GraphQL */ `
+  mutation CreateParticipante(
+    $input: CreateParticipanteInput!
+    $condition: ModelParticipanteConditionInput
   ) {
-    createTodo(input: $input, condition: $condition) {
+    createParticipante(input: $input, condition: $condition) {
       id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateTodo = /* GraphQL */ `
-  mutation UpdateTodo(
-    $input: UpdateTodoInput!
-    $condition: ModelTodoConditionInput
-  ) {
-    updateTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteTodo = /* GraphQL */ `
-  mutation DeleteTodo(
-    $input: DeleteTodoInput!
-    $condition: ModelTodoConditionInput
-  ) {
-    deleteTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createPagamento = /* GraphQL */ `
-  mutation CreatePagamento(
-    $input: CreatePagamentoInput!
-    $condition: ModelPagamentoConditionInput
-  ) {
-    createPagamento(input: $input, condition: $condition) {
-      id
-      valorPago
-      participante {
-        id
-        name
-        email
-        compraID
-        createdAt
-        updatedAt
-      }
+      nome
+      email
       compraID
       createdAt
       updatedAt
-      pagamentoParticipanteId
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const updatePagamento = /* GraphQL */ `
-  mutation UpdatePagamento(
-    $input: UpdatePagamentoInput!
-    $condition: ModelPagamentoConditionInput
+export const updateParticipante = /* GraphQL */ `
+  mutation UpdateParticipante(
+    $input: UpdateParticipanteInput!
+    $condition: ModelParticipanteConditionInput
   ) {
-    updatePagamento(input: $input, condition: $condition) {
+    updateParticipante(input: $input, condition: $condition) {
       id
-      valorPago
-      participante {
-        id
-        name
-        email
-        compraID
-        createdAt
-        updatedAt
-      }
+      nome
+      email
       compraID
       createdAt
       updatedAt
-      pagamentoParticipanteId
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const deletePagamento = /* GraphQL */ `
-  mutation DeletePagamento(
-    $input: DeletePagamentoInput!
-    $condition: ModelPagamentoConditionInput
+export const deleteParticipante = /* GraphQL */ `
+  mutation DeleteParticipante(
+    $input: DeleteParticipanteInput!
+    $condition: ModelParticipanteConditionInput
   ) {
-    deletePagamento(input: $input, condition: $condition) {
+    deleteParticipante(input: $input, condition: $condition) {
       id
-      valorPago
-      participante {
-        id
-        name
-        email
-        compraID
-        createdAt
-        updatedAt
-      }
+      nome
+      email
       compraID
       createdAt
       updatedAt
-      pagamentoParticipanteId
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -120,14 +63,19 @@ export const createCompra = /* GraphQL */ `
     createCompra(input: $input, condition: $condition) {
       id
       valorTotal
-      participantes {
-        nextToken
-      }
       pagamentos {
         nextToken
+        startedAt
+      }
+      participantes {
+        nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -139,14 +87,19 @@ export const updateCompra = /* GraphQL */ `
     updateCompra(input: $input, condition: $condition) {
       id
       valorTotal
-      participantes {
-        nextToken
-      }
       pagamentos {
         nextToken
+        startedAt
+      }
+      participantes {
+        nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -158,59 +111,70 @@ export const deleteCompra = /* GraphQL */ `
     deleteCompra(input: $input, condition: $condition) {
       id
       valorTotal
-      participantes {
-        nextToken
-      }
       pagamentos {
         nextToken
+        startedAt
+      }
+      participantes {
+        nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const createParticipante = /* GraphQL */ `
-  mutation CreateParticipante(
-    $input: CreateParticipanteInput!
-    $condition: ModelParticipanteConditionInput
+export const createPagamento = /* GraphQL */ `
+  mutation CreatePagamento(
+    $input: CreatePagamentoInput!
+    $condition: ModelPagamentoConditionInput
   ) {
-    createParticipante(input: $input, condition: $condition) {
+    createPagamento(input: $input, condition: $condition) {
       id
-      name
-      email
+      valorPago
       compraID
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const updateParticipante = /* GraphQL */ `
-  mutation UpdateParticipante(
-    $input: UpdateParticipanteInput!
-    $condition: ModelParticipanteConditionInput
+export const updatePagamento = /* GraphQL */ `
+  mutation UpdatePagamento(
+    $input: UpdatePagamentoInput!
+    $condition: ModelPagamentoConditionInput
   ) {
-    updateParticipante(input: $input, condition: $condition) {
+    updatePagamento(input: $input, condition: $condition) {
       id
-      name
-      email
+      valorPago
       compraID
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const deleteParticipante = /* GraphQL */ `
-  mutation DeleteParticipante(
-    $input: DeleteParticipanteInput!
-    $condition: ModelParticipanteConditionInput
+export const deletePagamento = /* GraphQL */ `
+  mutation DeletePagamento(
+    $input: DeletePagamentoInput!
+    $condition: ModelPagamentoConditionInput
   ) {
-    deleteParticipante(input: $input, condition: $condition) {
+    deletePagamento(input: $input, condition: $condition) {
       id
-      name
-      email
+      valorPago
       compraID
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -224,9 +188,13 @@ export const createBlog = /* GraphQL */ `
       name
       posts {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -240,9 +208,13 @@ export const updateBlog = /* GraphQL */ `
       name
       posts {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -256,9 +228,13 @@ export const deleteBlog = /* GraphQL */ `
       name
       posts {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -275,12 +251,19 @@ export const createPost = /* GraphQL */ `
         name
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       comments {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       blogPostsId
     }
   }
@@ -298,12 +281,19 @@ export const updatePost = /* GraphQL */ `
         name
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       comments {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       blogPostsId
     }
   }
@@ -321,12 +311,19 @@ export const deletePost = /* GraphQL */ `
         name
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       comments {
         nextToken
+        startedAt
       }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       blogPostsId
     }
   }
@@ -343,11 +340,17 @@ export const createComment = /* GraphQL */ `
         title
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
         blogPostsId
       }
       content
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       postCommentsId
     }
   }
@@ -364,11 +367,17 @@ export const updateComment = /* GraphQL */ `
         title
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
         blogPostsId
       }
       content
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       postCommentsId
     }
   }
@@ -385,11 +394,17 @@ export const deleteComment = /* GraphQL */ `
         title
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
         blogPostsId
       }
       content
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       postCommentsId
     }
   }

@@ -4,24 +4,23 @@ type Todo @model @auth(rules: [{allow: public}]) {
   description: String
 }
 
-type Pagamento @model @auth(rules: [{allow: public}]) {
+type Participante @model @auth(rules: [{allow: public}]) {
   id: ID!
-  valorPago: Float
-  participante: Participante! @hasOne
+  nome: String!
+  email: String!
   compraID: ID! @index(name: "byCompra")
 }
 
 type Compra @model @auth(rules: [{allow: public}]) {
   id: ID!
-  valorTotal: Float
-  participantes: [Participante!] @hasMany(indexName: "byCompra", fields: ["id"])
+  valorTotal: Float!
   pagamentos: [Pagamento!] @hasMany(indexName: "byCompra", fields: ["id"])
+  participantes: [Participante!] @hasMany(indexName: "byCompra", fields: ["id"])
 }
 
-type Participante @model @auth(rules: [{allow: public}]) {
+type Pagamento @model @auth(rules: [{allow: public}]) {
   id: ID!
-  name: String!
-  email: String!
+  valorPago: Float
   compraID: ID! @index(name: "byCompra")
 }
 

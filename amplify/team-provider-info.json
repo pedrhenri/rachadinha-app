@@ -1,4 +1,47 @@
 {
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-rachadinha-prod-02849-authRole",
+      "UnauthRoleArn": "arn:aws:iam::554500330924:role/amplify-rachadinha-prod-02849-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::554500330924:role/amplify-rachadinha-prod-02849-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-rachadinha-prod-02849-deployment",
+      "UnauthRoleName": "amplify-rachadinha-prod-02849-unauthRole",
+      "StackName": "amplify-rachadinha-prod-02849",
+      "StackId": "arn:aws:cloudformation:us-east-1:554500330924:stack/amplify-rachadinha-prod-02849/021c0e00-cf5b-11ed-b9d8-0eb8d30df3e7",
+      "AmplifyAppId": "d1fz9q85fyk6pk"
+    },
+    "categories": {
+      "auth": {
+        "rachadinha67161258": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1fz9q85fyk6pk",
+          "type": "manual"
+        }
+      }
+    }
+  },
+  "develop": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-rachadinha-develop-04200-authRole",
+      "UnauthRoleArn": "arn:aws:iam::554500330924:role/amplify-rachadinha-develop-04200-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::554500330924:role/amplify-rachadinha-develop-04200-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-rachadinha-develop-04200-deployment",
+      "UnauthRoleName": "amplify-rachadinha-develop-04200-unauthRole",
+      "StackName": "amplify-rachadinha-develop-04200",
+      "StackId": "arn:aws:cloudformation:us-east-1:554500330924:stack/amplify-rachadinha-develop-04200/d97d45c0-cf5c-11ed-8e77-123138c310a7",
+      "AmplifyAppId": "d1fz9q85fyk6pk"
+    },
+    "categories": {
+      "auth": {
+        "rachadinha67161258": {},
+        "rachadinha03ad2b06": {}
+      }
+    }
+  },
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-rachadinha-dev-03827-authRole",
