@@ -1,73 +1,7 @@
 export const schema = {
     "models": {
-        "Todo": {
-            "name": "Todo",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "description": {
-                    "name": "description",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "Todos",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "Participante": {
-            "name": "Participante",
+        "Usuario": {
+            "name": "Usuario",
             "fields": {
                 "id": {
                     "name": "id",
@@ -86,16 +20,57 @@ export const schema = {
                 "email": {
                     "name": "email",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSEmail",
                     "isRequired": true,
                     "attributes": []
                 },
-                "compraID": {
-                    "name": "compraID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
+                "pagamentos": {
+                    "name": "pagamentos",
+                    "isArray": true,
+                    "type": {
+                        "model": "Pagamento"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "usuarioID"
+                        ]
+                    }
+                },
+                "grupos": {
+                    "name": "grupos",
+                    "isArray": true,
+                    "type": {
+                        "model": "GrupoUsuario"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "usuario"
+                        ]
+                    }
+                },
+                "despesas": {
+                    "name": "despesas",
+                    "isArray": true,
+                    "type": {
+                        "model": "DespesaUsuario"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "usuario"
+                        ]
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -115,20 +90,11 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Participantes",
+            "pluralName": "Usuarios",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byCompra",
-                        "fields": [
-                            "compraID"
-                        ]
-                    }
                 },
                 {
                     "type": "auth",
@@ -148,8 +114,8 @@ export const schema = {
                 }
             ]
         },
-        "Compra": {
-            "name": "Compra",
+        "Grupo": {
+            "name": "Grupo",
             "fields": {
                 "id": {
                     "name": "id",
@@ -158,42 +124,35 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "valorTotal": {
-                    "name": "valorTotal",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "pagamentos": {
-                    "name": "pagamentos",
+                "usuarios": {
+                    "name": "usuarios",
                     "isArray": true,
                     "type": {
-                        "model": "Pagamento"
+                        "model": "GrupoUsuario"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
                         "associatedWith": [
-                            "compraID"
+                            "grupo"
                         ]
                     }
                 },
-                "participantes": {
-                    "name": "participantes",
+                "despesas": {
+                    "name": "despesas",
                     "isArray": true,
                     "type": {
-                        "model": "Participante"
+                        "model": "GrupoDespesa"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
                         "associatedWith": [
-                            "compraID"
+                            "grupo"
                         ]
                     }
                 },
@@ -215,7 +174,107 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Compras",
+            "pluralName": "Grupos",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Despesa": {
+            "name": "Despesa",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "pagamentos": {
+                    "name": "pagamentos",
+                    "isArray": true,
+                    "type": {
+                        "model": "Pagamento"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "despesaID"
+                        ]
+                    }
+                },
+                "usuarios": {
+                    "name": "usuarios",
+                    "isArray": true,
+                    "type": {
+                        "model": "DespesaUsuario"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "despesa"
+                        ]
+                    }
+                },
+                "grupos": {
+                    "name": "grupos",
+                    "isArray": true,
+                    "type": {
+                        "model": "GrupoDespesa"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "despesa"
+                        ]
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Despesas",
             "attributes": [
                 {
                     "type": "model",
@@ -253,11 +312,18 @@ export const schema = {
                     "name": "valorPago",
                     "isArray": false,
                     "type": "Float",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
-                "compraID": {
-                    "name": "compraID",
+                "despesaID": {
+                    "name": "despesaID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "usuarioID": {
+                    "name": "usuarioID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
@@ -290,9 +356,18 @@ export const schema = {
                 {
                     "type": "key",
                     "properties": {
-                        "name": "byCompra",
+                        "name": "byDespesa",
                         "fields": [
-                            "compraID"
+                            "despesaID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byUsuario",
+                        "fields": [
+                            "usuarioID"
                         ]
                     }
                 },
@@ -314,8 +389,8 @@ export const schema = {
                 }
             ]
         },
-        "Blog": {
-            "name": "Blog",
+        "GrupoUsuario": {
+            "name": "GrupoUsuario",
             "fields": {
                 "id": {
                     "name": "id",
@@ -324,116 +399,47 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "posts": {
-                    "name": "posts",
-                    "isArray": true,
-                    "type": {
-                        "model": "Post"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "blogPostsId"
-                        ]
-                    }
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "Blogs",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "Post": {
-            "name": "Post",
-            "fields": {
-                "id": {
-                    "name": "id",
+                "usuarioId": {
+                    "name": "usuarioId",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
-                "title": {
-                    "name": "title",
+                "grupoId": {
+                    "name": "grupoId",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
+                    "type": "ID",
+                    "isRequired": false,
                     "attributes": []
                 },
-                "blog": {
-                    "name": "blog",
+                "usuario": {
+                    "name": "usuario",
                     "isArray": false,
                     "type": {
-                        "model": "Blog"
+                        "model": "Usuario"
                     },
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
                         "targetNames": [
-                            "blogPostsId"
+                            "usuarioId"
                         ]
                     }
                 },
-                "comments": {
-                    "name": "comments",
-                    "isArray": true,
+                "grupo": {
+                    "name": "grupo",
+                    "isArray": false,
                     "type": {
-                        "model": "Comment"
+                        "model": "Grupo"
                     },
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": [],
-                    "isArrayNullable": true,
                     "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "postCommentsId"
+                        "connectionType": "BELONGS_TO",
+                        "targetNames": [
+                            "grupoId"
                         ]
                     }
                 },
@@ -452,42 +458,37 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isReadOnly": true
-                },
-                "blogPostsId": {
-                    "name": "blogPostsId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
                 }
             },
             "syncable": true,
-            "pluralName": "Posts",
+            "pluralName": "GrupoUsuarios",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
                 },
                 {
-                    "type": "auth",
+                    "type": "key",
                     "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
+                        "name": "byUsuario",
+                        "fields": [
+                            "usuarioId"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byGrupo",
+                        "fields": [
+                            "grupoId"
                         ]
                     }
                 }
             ]
         },
-        "Comment": {
-            "name": "Comment",
+        "DespesaUsuario": {
+            "name": "DespesaUsuario",
             "fields": {
                 "id": {
                     "name": "id",
@@ -496,27 +497,49 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "post": {
-                    "name": "post",
+                "usuarioId": {
+                    "name": "usuarioId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "despesaId": {
+                    "name": "despesaId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "usuario": {
+                    "name": "usuario",
                     "isArray": false,
                     "type": {
-                        "model": "Post"
+                        "model": "Usuario"
                     },
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
                         "targetNames": [
-                            "postCommentsId"
+                            "usuarioId"
                         ]
                     }
                 },
-                "content": {
-                    "name": "content",
+                "despesa": {
+                    "name": "despesa",
                     "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "model": "Despesa"
+                    },
                     "isRequired": true,
-                    "attributes": []
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetNames": [
+                            "despesaId"
+                        ]
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -533,35 +556,128 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isReadOnly": true
-                },
-                "postCommentsId": {
-                    "name": "postCommentsId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
                 }
             },
             "syncable": true,
-            "pluralName": "Comments",
+            "pluralName": "DespesaUsuarios",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
                 },
                 {
-                    "type": "auth",
+                    "type": "key",
                     "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
+                        "name": "byUsuario",
+                        "fields": [
+                            "usuarioId"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byDespesa",
+                        "fields": [
+                            "despesaId"
+                        ]
+                    }
+                }
+            ]
+        },
+        "GrupoDespesa": {
+            "name": "GrupoDespesa",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "grupoId": {
+                    "name": "grupoId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "despesaId": {
+                    "name": "despesaId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "grupo": {
+                    "name": "grupo",
+                    "isArray": false,
+                    "type": {
+                        "model": "Grupo"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetNames": [
+                            "grupoId"
+                        ]
+                    }
+                },
+                "despesa": {
+                    "name": "despesa",
+                    "isArray": false,
+                    "type": {
+                        "model": "Despesa"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetNames": [
+                            "despesaId"
+                        ]
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "GrupoDespesas",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byGrupo",
+                        "fields": [
+                            "grupoId"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byDespesa",
+                        "fields": [
+                            "despesaId"
                         ]
                     }
                 }
@@ -571,5 +687,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.0",
-    "version": "dfc528f4d475fdba90213bbcd4d673f4"
+    "version": "58632acb2af13c91da06fafc2a71bcb3"
 };

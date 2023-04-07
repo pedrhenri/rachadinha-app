@@ -1,124 +1,24 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTodo = /* GraphQL */ `
-  mutation CreateTodo(
-    $input: CreateTodoInput!
-    $condition: ModelTodoConditionInput
+export const createUsuario = /* GraphQL */ `
+  mutation CreateUsuario(
+    $input: CreateUsuarioInput!
+    $condition: ModelUsuarioConditionInput
   ) {
-    createTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateTodo = /* GraphQL */ `
-  mutation UpdateTodo(
-    $input: UpdateTodoInput!
-    $condition: ModelTodoConditionInput
-  ) {
-    updateTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteTodo = /* GraphQL */ `
-  mutation DeleteTodo(
-    $input: DeleteTodoInput!
-    $condition: ModelTodoConditionInput
-  ) {
-    deleteTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createParticipante = /* GraphQL */ `
-  mutation CreateParticipante(
-    $input: CreateParticipanteInput!
-    $condition: ModelParticipanteConditionInput
-  ) {
-    createParticipante(input: $input, condition: $condition) {
+    createUsuario(input: $input, condition: $condition) {
       id
       nome
       email
-      compraID
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateParticipante = /* GraphQL */ `
-  mutation UpdateParticipante(
-    $input: UpdateParticipanteInput!
-    $condition: ModelParticipanteConditionInput
-  ) {
-    updateParticipante(input: $input, condition: $condition) {
-      id
-      nome
-      email
-      compraID
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteParticipante = /* GraphQL */ `
-  mutation DeleteParticipante(
-    $input: DeleteParticipanteInput!
-    $condition: ModelParticipanteConditionInput
-  ) {
-    deleteParticipante(input: $input, condition: $condition) {
-      id
-      nome
-      email
-      compraID
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createCompra = /* GraphQL */ `
-  mutation CreateCompra(
-    $input: CreateCompraInput!
-    $condition: ModelCompraConditionInput
-  ) {
-    createCompra(input: $input, condition: $condition) {
-      id
-      valorTotal
       pagamentos {
         nextToken
         startedAt
       }
-      participantes {
+      grupos {
+        nextToken
+        startedAt
+      }
+      despesas {
         nextToken
         startedAt
       }
@@ -130,19 +30,24 @@ export const createCompra = /* GraphQL */ `
     }
   }
 `;
-export const updateCompra = /* GraphQL */ `
-  mutation UpdateCompra(
-    $input: UpdateCompraInput!
-    $condition: ModelCompraConditionInput
+export const updateUsuario = /* GraphQL */ `
+  mutation UpdateUsuario(
+    $input: UpdateUsuarioInput!
+    $condition: ModelUsuarioConditionInput
   ) {
-    updateCompra(input: $input, condition: $condition) {
+    updateUsuario(input: $input, condition: $condition) {
       id
-      valorTotal
+      nome
+      email
       pagamentos {
         nextToken
         startedAt
       }
-      participantes {
+      grupos {
+        nextToken
+        startedAt
+      }
+      despesas {
         nextToken
         startedAt
       }
@@ -154,19 +59,174 @@ export const updateCompra = /* GraphQL */ `
     }
   }
 `;
-export const deleteCompra = /* GraphQL */ `
-  mutation DeleteCompra(
-    $input: DeleteCompraInput!
-    $condition: ModelCompraConditionInput
+export const deleteUsuario = /* GraphQL */ `
+  mutation DeleteUsuario(
+    $input: DeleteUsuarioInput!
+    $condition: ModelUsuarioConditionInput
   ) {
-    deleteCompra(input: $input, condition: $condition) {
+    deleteUsuario(input: $input, condition: $condition) {
       id
-      valorTotal
+      nome
+      email
       pagamentos {
         nextToken
         startedAt
       }
-      participantes {
+      grupos {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createGrupo = /* GraphQL */ `
+  mutation CreateGrupo(
+    $input: CreateGrupoInput!
+    $condition: ModelGrupoConditionInput
+  ) {
+    createGrupo(input: $input, condition: $condition) {
+      id
+      usuarios {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateGrupo = /* GraphQL */ `
+  mutation UpdateGrupo(
+    $input: UpdateGrupoInput!
+    $condition: ModelGrupoConditionInput
+  ) {
+    updateGrupo(input: $input, condition: $condition) {
+      id
+      usuarios {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteGrupo = /* GraphQL */ `
+  mutation DeleteGrupo(
+    $input: DeleteGrupoInput!
+    $condition: ModelGrupoConditionInput
+  ) {
+    deleteGrupo(input: $input, condition: $condition) {
+      id
+      usuarios {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createDespesa = /* GraphQL */ `
+  mutation CreateDespesa(
+    $input: CreateDespesaInput!
+    $condition: ModelDespesaConditionInput
+  ) {
+    createDespesa(input: $input, condition: $condition) {
+      id
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      usuarios {
+        nextToken
+        startedAt
+      }
+      grupos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateDespesa = /* GraphQL */ `
+  mutation UpdateDespesa(
+    $input: UpdateDespesaInput!
+    $condition: ModelDespesaConditionInput
+  ) {
+    updateDespesa(input: $input, condition: $condition) {
+      id
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      usuarios {
+        nextToken
+        startedAt
+      }
+      grupos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteDespesa = /* GraphQL */ `
+  mutation DeleteDespesa(
+    $input: DeleteDespesaInput!
+    $condition: ModelDespesaConditionInput
+  ) {
+    deleteDespesa(input: $input, condition: $condition) {
+      id
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      usuarios {
+        nextToken
+        startedAt
+      }
+      grupos {
         nextToken
         startedAt
       }
@@ -186,7 +246,8 @@ export const createPagamento = /* GraphQL */ `
     createPagamento(input: $input, condition: $condition) {
       id
       valorPago
-      compraID
+      despesaID
+      usuarioID
       createdAt
       updatedAt
       _version
@@ -203,7 +264,8 @@ export const updatePagamento = /* GraphQL */ `
     updatePagamento(input: $input, condition: $condition) {
       id
       valorPago
-      compraID
+      despesaID
+      usuarioID
       createdAt
       updatedAt
       _version
@@ -220,7 +282,8 @@ export const deletePagamento = /* GraphQL */ `
     deletePagamento(input: $input, condition: $condition) {
       id
       valorPago
-      compraID
+      despesaID
+      usuarioID
       createdAt
       updatedAt
       _version
@@ -229,234 +292,312 @@ export const deletePagamento = /* GraphQL */ `
     }
   }
 `;
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createGrupoUsuario = /* GraphQL */ `
+  mutation CreateGrupoUsuario(
+    $input: CreateGrupoUsuarioInput!
+    $condition: ModelGrupoUsuarioConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
+    createGrupoUsuario(input: $input, condition: $condition) {
       id
-      name
-      posts {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
-  ) {
-    updateBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
-  ) {
-    deleteBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      blog {
+      usuarioId
+      grupoId
+      usuario {
         id
-        name
+        nome
+        email
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
-      comments {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      blogPostsId
-    }
-  }
-`;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    updatePost(input: $input, condition: $condition) {
-      id
-      title
-      blog {
+      grupo {
         id
-        name
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
-      comments {
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      blogPostsId
     }
   }
 `;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
+export const updateGrupoUsuario = /* GraphQL */ `
+  mutation UpdateGrupoUsuario(
+    $input: UpdateGrupoUsuarioInput!
+    $condition: ModelGrupoUsuarioConditionInput
   ) {
-    deletePost(input: $input, condition: $condition) {
+    updateGrupoUsuario(input: $input, condition: $condition) {
       id
-      title
-      blog {
+      usuarioId
+      grupoId
+      usuario {
         id
-        name
+        nome
+        email
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
-      comments {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      blogPostsId
-    }
-  }
-`;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      post {
+      grupo {
         id
-        title
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
-      content
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      postCommentsId
     }
   }
 `;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
+export const deleteGrupoUsuario = /* GraphQL */ `
+  mutation DeleteGrupoUsuario(
+    $input: DeleteGrupoUsuarioInput!
+    $condition: ModelGrupoUsuarioConditionInput
   ) {
-    updateComment(input: $input, condition: $condition) {
+    deleteGrupoUsuario(input: $input, condition: $condition) {
       id
-      post {
+      usuarioId
+      grupoId
+      usuario {
         id
-        title
+        nome
+        email
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
-      content
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      postCommentsId
-    }
-  }
-`;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      post {
+      grupo {
         id
-        title
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
-      content
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      postCommentsId
+    }
+  }
+`;
+export const createDespesaUsuario = /* GraphQL */ `
+  mutation CreateDespesaUsuario(
+    $input: CreateDespesaUsuarioInput!
+    $condition: ModelDespesaUsuarioConditionInput
+  ) {
+    createDespesaUsuario(input: $input, condition: $condition) {
+      id
+      usuarioId
+      despesaId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateDespesaUsuario = /* GraphQL */ `
+  mutation UpdateDespesaUsuario(
+    $input: UpdateDespesaUsuarioInput!
+    $condition: ModelDespesaUsuarioConditionInput
+  ) {
+    updateDespesaUsuario(input: $input, condition: $condition) {
+      id
+      usuarioId
+      despesaId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteDespesaUsuario = /* GraphQL */ `
+  mutation DeleteDespesaUsuario(
+    $input: DeleteDespesaUsuarioInput!
+    $condition: ModelDespesaUsuarioConditionInput
+  ) {
+    deleteDespesaUsuario(input: $input, condition: $condition) {
+      id
+      usuarioId
+      despesaId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createGrupoDespesa = /* GraphQL */ `
+  mutation CreateGrupoDespesa(
+    $input: CreateGrupoDespesaInput!
+    $condition: ModelGrupoDespesaConditionInput
+  ) {
+    createGrupoDespesa(input: $input, condition: $condition) {
+      id
+      grupoId
+      despesaId
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateGrupoDespesa = /* GraphQL */ `
+  mutation UpdateGrupoDespesa(
+    $input: UpdateGrupoDespesaInput!
+    $condition: ModelGrupoDespesaConditionInput
+  ) {
+    updateGrupoDespesa(input: $input, condition: $condition) {
+      id
+      grupoId
+      despesaId
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteGrupoDespesa = /* GraphQL */ `
+  mutation DeleteGrupoDespesa(
+    $input: DeleteGrupoDespesaInput!
+    $condition: ModelGrupoDespesaConditionInput
+  ) {
+    deleteGrupoDespesa(input: $input, condition: $condition) {
+      id
+      grupoId
+      despesaId
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;

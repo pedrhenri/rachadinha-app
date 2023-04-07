@@ -1,109 +1,21 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onCreateTodo(filter: $filter) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onUpdateTodo(filter: $filter) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onDeleteTodo(filter: $filter) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onCreateParticipante = /* GraphQL */ `
-  subscription OnCreateParticipante(
-    $filter: ModelSubscriptionParticipanteFilterInput
-  ) {
-    onCreateParticipante(filter: $filter) {
+export const onCreateUsuario = /* GraphQL */ `
+  subscription OnCreateUsuario($filter: ModelSubscriptionUsuarioFilterInput) {
+    onCreateUsuario(filter: $filter) {
       id
       nome
       email
-      compraID
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateParticipante = /* GraphQL */ `
-  subscription OnUpdateParticipante(
-    $filter: ModelSubscriptionParticipanteFilterInput
-  ) {
-    onUpdateParticipante(filter: $filter) {
-      id
-      nome
-      email
-      compraID
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteParticipante = /* GraphQL */ `
-  subscription OnDeleteParticipante(
-    $filter: ModelSubscriptionParticipanteFilterInput
-  ) {
-    onDeleteParticipante(filter: $filter) {
-      id
-      nome
-      email
-      compraID
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onCreateCompra = /* GraphQL */ `
-  subscription OnCreateCompra($filter: ModelSubscriptionCompraFilterInput) {
-    onCreateCompra(filter: $filter) {
-      id
-      valorTotal
       pagamentos {
         nextToken
         startedAt
       }
-      participantes {
+      grupos {
+        nextToken
+        startedAt
+      }
+      despesas {
         nextToken
         startedAt
       }
@@ -115,16 +27,21 @@ export const onCreateCompra = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateCompra = /* GraphQL */ `
-  subscription OnUpdateCompra($filter: ModelSubscriptionCompraFilterInput) {
-    onUpdateCompra(filter: $filter) {
+export const onUpdateUsuario = /* GraphQL */ `
+  subscription OnUpdateUsuario($filter: ModelSubscriptionUsuarioFilterInput) {
+    onUpdateUsuario(filter: $filter) {
       id
-      valorTotal
+      nome
+      email
       pagamentos {
         nextToken
         startedAt
       }
-      participantes {
+      grupos {
+        nextToken
+        startedAt
+      }
+      despesas {
         nextToken
         startedAt
       }
@@ -136,16 +53,153 @@ export const onUpdateCompra = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteCompra = /* GraphQL */ `
-  subscription OnDeleteCompra($filter: ModelSubscriptionCompraFilterInput) {
-    onDeleteCompra(filter: $filter) {
+export const onDeleteUsuario = /* GraphQL */ `
+  subscription OnDeleteUsuario($filter: ModelSubscriptionUsuarioFilterInput) {
+    onDeleteUsuario(filter: $filter) {
       id
-      valorTotal
+      nome
+      email
       pagamentos {
         nextToken
         startedAt
       }
-      participantes {
+      grupos {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateGrupo = /* GraphQL */ `
+  subscription OnCreateGrupo($filter: ModelSubscriptionGrupoFilterInput) {
+    onCreateGrupo(filter: $filter) {
+      id
+      usuarios {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateGrupo = /* GraphQL */ `
+  subscription OnUpdateGrupo($filter: ModelSubscriptionGrupoFilterInput) {
+    onUpdateGrupo(filter: $filter) {
+      id
+      usuarios {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteGrupo = /* GraphQL */ `
+  subscription OnDeleteGrupo($filter: ModelSubscriptionGrupoFilterInput) {
+    onDeleteGrupo(filter: $filter) {
+      id
+      usuarios {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateDespesa = /* GraphQL */ `
+  subscription OnCreateDespesa($filter: ModelSubscriptionDespesaFilterInput) {
+    onCreateDespesa(filter: $filter) {
+      id
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      usuarios {
+        nextToken
+        startedAt
+      }
+      grupos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateDespesa = /* GraphQL */ `
+  subscription OnUpdateDespesa($filter: ModelSubscriptionDespesaFilterInput) {
+    onUpdateDespesa(filter: $filter) {
+      id
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      usuarios {
+        nextToken
+        startedAt
+      }
+      grupos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteDespesa = /* GraphQL */ `
+  subscription OnDeleteDespesa($filter: ModelSubscriptionDespesaFilterInput) {
+    onDeleteDespesa(filter: $filter) {
+      id
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      usuarios {
+        nextToken
+        startedAt
+      }
+      grupos {
         nextToken
         startedAt
       }
@@ -164,7 +218,8 @@ export const onCreatePagamento = /* GraphQL */ `
     onCreatePagamento(filter: $filter) {
       id
       valorPago
-      compraID
+      despesaID
+      usuarioID
       createdAt
       updatedAt
       _version
@@ -180,7 +235,8 @@ export const onUpdatePagamento = /* GraphQL */ `
     onUpdatePagamento(filter: $filter) {
       id
       valorPago
-      compraID
+      despesaID
+      usuarioID
       createdAt
       updatedAt
       _version
@@ -196,7 +252,8 @@ export const onDeletePagamento = /* GraphQL */ `
     onDeletePagamento(filter: $filter) {
       id
       valorPago
-      compraID
+      despesaID
+      usuarioID
       createdAt
       updatedAt
       _version
@@ -205,207 +262,303 @@ export const onDeletePagamento = /* GraphQL */ `
     }
   }
 `;
-export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
-    onCreateBlog(filter: $filter) {
+export const onCreateGrupoUsuario = /* GraphQL */ `
+  subscription OnCreateGrupoUsuario(
+    $filter: ModelSubscriptionGrupoUsuarioFilterInput
+  ) {
+    onCreateGrupoUsuario(filter: $filter) {
       id
-      name
-      posts {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
-    onUpdateBlog(filter: $filter) {
-      id
-      name
-      posts {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
-    onDeleteBlog(filter: $filter) {
-      id
-      name
-      posts {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
-    onCreatePost(filter: $filter) {
-      id
-      title
-      blog {
+      usuarioId
+      grupoId
+      usuario {
         id
-        name
+        nome
+        email
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
-      comments {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      blogPostsId
-    }
-  }
-`;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
-    onUpdatePost(filter: $filter) {
-      id
-      title
-      blog {
+      grupo {
         id
-        name
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
-      comments {
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      blogPostsId
     }
   }
 `;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
-    onDeletePost(filter: $filter) {
+export const onUpdateGrupoUsuario = /* GraphQL */ `
+  subscription OnUpdateGrupoUsuario(
+    $filter: ModelSubscriptionGrupoUsuarioFilterInput
+  ) {
+    onUpdateGrupoUsuario(filter: $filter) {
       id
-      title
-      blog {
+      usuarioId
+      grupoId
+      usuario {
         id
-        name
+        nome
+        email
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
-      comments {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      blogPostsId
-    }
-  }
-`;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onCreateComment(filter: $filter) {
-      id
-      post {
+      grupo {
         id
-        title
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
-      content
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      postCommentsId
     }
   }
 `;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onUpdateComment(filter: $filter) {
+export const onDeleteGrupoUsuario = /* GraphQL */ `
+  subscription OnDeleteGrupoUsuario(
+    $filter: ModelSubscriptionGrupoUsuarioFilterInput
+  ) {
+    onDeleteGrupoUsuario(filter: $filter) {
       id
-      post {
+      usuarioId
+      grupoId
+      usuario {
         id
-        title
+        nome
+        email
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
-      content
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      postCommentsId
-    }
-  }
-`;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
-    onDeleteComment(filter: $filter) {
-      id
-      post {
+      grupo {
         id
-        title
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
-      content
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      postCommentsId
+    }
+  }
+`;
+export const onCreateDespesaUsuario = /* GraphQL */ `
+  subscription OnCreateDespesaUsuario(
+    $filter: ModelSubscriptionDespesaUsuarioFilterInput
+  ) {
+    onCreateDespesaUsuario(filter: $filter) {
+      id
+      usuarioId
+      despesaId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateDespesaUsuario = /* GraphQL */ `
+  subscription OnUpdateDespesaUsuario(
+    $filter: ModelSubscriptionDespesaUsuarioFilterInput
+  ) {
+    onUpdateDespesaUsuario(filter: $filter) {
+      id
+      usuarioId
+      despesaId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteDespesaUsuario = /* GraphQL */ `
+  subscription OnDeleteDespesaUsuario(
+    $filter: ModelSubscriptionDespesaUsuarioFilterInput
+  ) {
+    onDeleteDespesaUsuario(filter: $filter) {
+      id
+      usuarioId
+      despesaId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateGrupoDespesa = /* GraphQL */ `
+  subscription OnCreateGrupoDespesa(
+    $filter: ModelSubscriptionGrupoDespesaFilterInput
+  ) {
+    onCreateGrupoDespesa(filter: $filter) {
+      id
+      grupoId
+      despesaId
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateGrupoDespesa = /* GraphQL */ `
+  subscription OnUpdateGrupoDespesa(
+    $filter: ModelSubscriptionGrupoDespesaFilterInput
+  ) {
+    onUpdateGrupoDespesa(filter: $filter) {
+      id
+      grupoId
+      despesaId
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteGrupoDespesa = /* GraphQL */ `
+  subscription OnDeleteGrupoDespesa(
+    $filter: ModelSubscriptionGrupoDespesaFilterInput
+  ) {
+    onDeleteGrupoDespesa(filter: $filter) {
+      id
+      grupoId
+      despesaId
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;

@@ -1,178 +1,21 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTodo = /* GraphQL */ `
-  query GetTodo($id: ID!) {
-    getTodo(id: $id) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const listTodos = /* GraphQL */ `
-  query ListTodos(
-    $filter: ModelTodoFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncTodos = /* GraphQL */ `
-  query SyncTodos(
-    $filter: ModelTodoFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncTodos(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getParticipante = /* GraphQL */ `
-  query GetParticipante($id: ID!) {
-    getParticipante(id: $id) {
+export const getUsuario = /* GraphQL */ `
+  query GetUsuario($id: ID!) {
+    getUsuario(id: $id) {
       id
       nome
       email
-      compraID
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const listParticipantes = /* GraphQL */ `
-  query ListParticipantes(
-    $filter: ModelParticipanteFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listParticipantes(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        nome
-        email
-        compraID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncParticipantes = /* GraphQL */ `
-  query SyncParticipantes(
-    $filter: ModelParticipanteFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncParticipantes(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        nome
-        email
-        compraID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const participantesByCompraID = /* GraphQL */ `
-  query ParticipantesByCompraID(
-    $compraID: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelParticipanteFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    participantesByCompraID(
-      compraID: $compraID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        nome
-        email
-        compraID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getCompra = /* GraphQL */ `
-  query GetCompra($id: ID!) {
-    getCompra(id: $id) {
-      id
-      valorTotal
       pagamentos {
         nextToken
         startedAt
       }
-      participantes {
+      grupos {
+        nextToken
+        startedAt
+      }
+      despesas {
         nextToken
         startedAt
       }
@@ -184,16 +27,17 @@ export const getCompra = /* GraphQL */ `
     }
   }
 `;
-export const listCompras = /* GraphQL */ `
-  query ListCompras(
-    $filter: ModelCompraFilterInput
+export const listUsuarios = /* GraphQL */ `
+  query ListUsuarios(
+    $filter: ModelUsuarioFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listCompras(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listUsuarios(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        valorTotal
+        nome
+        email
         createdAt
         updatedAt
         _version
@@ -205,14 +49,14 @@ export const listCompras = /* GraphQL */ `
     }
   }
 `;
-export const syncCompras = /* GraphQL */ `
-  query SyncCompras(
-    $filter: ModelCompraFilterInput
+export const syncUsuarios = /* GraphQL */ `
+  query SyncUsuarios(
+    $filter: ModelUsuarioFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncCompras(
+    syncUsuarios(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -220,7 +64,144 @@ export const syncCompras = /* GraphQL */ `
     ) {
       items {
         id
-        valorTotal
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getGrupo = /* GraphQL */ `
+  query GetGrupo($id: ID!) {
+    getGrupo(id: $id) {
+      id
+      usuarios {
+        nextToken
+        startedAt
+      }
+      despesas {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listGrupos = /* GraphQL */ `
+  query ListGrupos(
+    $filter: ModelGrupoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listGrupos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncGrupos = /* GraphQL */ `
+  query SyncGrupos(
+    $filter: ModelGrupoFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncGrupos(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getDespesa = /* GraphQL */ `
+  query GetDespesa($id: ID!) {
+    getDespesa(id: $id) {
+      id
+      pagamentos {
+        nextToken
+        startedAt
+      }
+      usuarios {
+        nextToken
+        startedAt
+      }
+      grupos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listDespesas = /* GraphQL */ `
+  query ListDespesas(
+    $filter: ModelDespesaFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDespesas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncDespesas = /* GraphQL */ `
+  query SyncDespesas(
+    $filter: ModelDespesaFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncDespesas(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
         createdAt
         updatedAt
         _version
@@ -237,7 +218,8 @@ export const getPagamento = /* GraphQL */ `
     getPagamento(id: $id) {
       id
       valorPago
-      compraID
+      despesaID
+      usuarioID
       createdAt
       updatedAt
       _version
@@ -256,7 +238,8 @@ export const listPagamentos = /* GraphQL */ `
       items {
         id
         valorPago
-        compraID
+        despesaID
+        usuarioID
         createdAt
         updatedAt
         _version
@@ -284,7 +267,8 @@ export const syncPagamentos = /* GraphQL */ `
       items {
         id
         valorPago
-        compraID
+        despesaID
+        usuarioID
         createdAt
         updatedAt
         _version
@@ -296,16 +280,16 @@ export const syncPagamentos = /* GraphQL */ `
     }
   }
 `;
-export const pagamentosByCompraID = /* GraphQL */ `
-  query PagamentosByCompraID(
-    $compraID: ID!
+export const pagamentosByDespesaID = /* GraphQL */ `
+  query PagamentosByDespesaID(
+    $despesaID: ID!
     $sortDirection: ModelSortDirection
     $filter: ModelPagamentoFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    pagamentosByCompraID(
-      compraID: $compraID
+    pagamentosByDespesaID(
+      despesaID: $despesaID
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit
@@ -314,7 +298,8 @@ export const pagamentosByCompraID = /* GraphQL */ `
       items {
         id
         valorPago
-        compraID
+        despesaID
+        usuarioID
         createdAt
         updatedAt
         _version
@@ -326,14 +311,60 @@ export const pagamentosByCompraID = /* GraphQL */ `
     }
   }
 `;
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const pagamentosByUsuarioID = /* GraphQL */ `
+  query PagamentosByUsuarioID(
+    $usuarioID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelPagamentoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    pagamentosByUsuarioID(
+      usuarioID: $usuarioID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        valorPago
+        despesaID
+        usuarioID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getGrupoUsuario = /* GraphQL */ `
+  query GetGrupoUsuario($id: ID!) {
+    getGrupoUsuario(id: $id) {
       id
-      name
-      posts {
-        nextToken
-        startedAt
+      usuarioId
+      grupoId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       createdAt
       updatedAt
@@ -343,16 +374,17 @@ export const getBlog = /* GraphQL */ `
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listGrupoUsuarios = /* GraphQL */ `
+  query ListGrupoUsuarios(
+    $filter: ModelGrupoUsuarioFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listGrupoUsuarios(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
+        usuarioId
+        grupoId
         createdAt
         updatedAt
         _version
@@ -364,14 +396,14 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const syncBlogs = /* GraphQL */ `
-  query SyncBlogs(
-    $filter: ModelBlogFilterInput
+export const syncGrupoUsuarios = /* GraphQL */ `
+  query SyncGrupoUsuarios(
+    $filter: ModelGrupoUsuarioFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncBlogs(
+    syncGrupoUsuarios(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -379,7 +411,8 @@ export const syncBlogs = /* GraphQL */ `
     ) {
       items {
         id
-        name
+        usuarioId
+        grupoId
         createdAt
         updatedAt
         _version
@@ -391,63 +424,128 @@ export const syncBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
-      id
-      title
-      blog {
+export const grupoUsuariosByUsuarioId = /* GraphQL */ `
+  query GrupoUsuariosByUsuarioId(
+    $usuarioId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelGrupoUsuarioFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    grupoUsuariosByUsuarioId(
+      usuarioId: $usuarioId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
         id
-        name
+        usuarioId
+        grupoId
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
-      comments {
-        nextToken
-        startedAt
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const grupoUsuariosByGrupoId = /* GraphQL */ `
+  query GrupoUsuariosByGrupoId(
+    $grupoId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelGrupoUsuarioFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    grupoUsuariosByGrupoId(
+      grupoId: $grupoId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        usuarioId
+        grupoId
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getDespesaUsuario = /* GraphQL */ `
+  query GetDespesaUsuario($id: ID!) {
+    getDespesaUsuario(id: $id) {
+      id
+      usuarioId
+      despesaId
+      usuario {
+        id
+        nome
+        email
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      blogPostsId
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listDespesaUsuarios = /* GraphQL */ `
+  query ListDespesaUsuarios(
+    $filter: ModelDespesaUsuarioFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listDespesaUsuarios(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
+        usuarioId
+        despesaId
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
       nextToken
       startedAt
     }
   }
 `;
-export const syncPosts = /* GraphQL */ `
-  query SyncPosts(
-    $filter: ModelPostFilterInput
+export const syncDespesaUsuarios = /* GraphQL */ `
+  query SyncDespesaUsuarios(
+    $filter: ModelDespesaUsuarioFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncPosts(
+    syncDespesaUsuarios(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -455,73 +553,139 @@ export const syncPosts = /* GraphQL */ `
     ) {
       items {
         id
-        title
+        usuarioId
+        despesaId
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
       nextToken
       startedAt
     }
   }
 `;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      post {
+export const despesaUsuariosByUsuarioId = /* GraphQL */ `
+  query DespesaUsuariosByUsuarioId(
+    $usuarioId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelDespesaUsuarioFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    despesaUsuariosByUsuarioId(
+      usuarioId: $usuarioId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
         id
-        title
+        usuarioId
+        despesaId
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        blogPostsId
       }
-      content
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const despesaUsuariosByDespesaId = /* GraphQL */ `
+  query DespesaUsuariosByDespesaId(
+    $despesaId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelDespesaUsuarioFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    despesaUsuariosByDespesaId(
+      despesaId: $despesaId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        usuarioId
+        despesaId
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getGrupoDespesa = /* GraphQL */ `
+  query GetGrupoDespesa($id: ID!) {
+    getGrupoDespesa(id: $id) {
+      id
+      grupoId
+      despesaId
+      grupo {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      despesa {
+        id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      postCommentsId
     }
   }
 `;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
+export const listGrupoDespesas = /* GraphQL */ `
+  query ListGrupoDespesas(
+    $filter: ModelGrupoDespesaFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listGrupoDespesas(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        content
+        grupoId
+        despesaId
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        postCommentsId
       }
       nextToken
       startedAt
     }
   }
 `;
-export const syncComments = /* GraphQL */ `
-  query SyncComments(
-    $filter: ModelCommentFilterInput
+export const syncGrupoDespesas = /* GraphQL */ `
+  query SyncGrupoDespesas(
+    $filter: ModelGrupoDespesaFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncComments(
+    syncGrupoDespesas(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -529,13 +693,73 @@ export const syncComments = /* GraphQL */ `
     ) {
       items {
         id
-        content
+        grupoId
+        despesaId
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        postCommentsId
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const grupoDespesasByGrupoId = /* GraphQL */ `
+  query GrupoDespesasByGrupoId(
+    $grupoId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelGrupoDespesaFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    grupoDespesasByGrupoId(
+      grupoId: $grupoId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        grupoId
+        despesaId
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const grupoDespesasByDespesaId = /* GraphQL */ `
+  query GrupoDespesasByDespesaId(
+    $despesaId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelGrupoDespesaFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    grupoDespesasByDespesaId(
+      despesaId: $despesaId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        grupoId
+        despesaId
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
       startedAt

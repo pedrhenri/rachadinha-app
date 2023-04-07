@@ -1,45 +1,29 @@
-type Todo @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String!
-  description: String
-}
-
-type Participante @model @auth(rules: [{allow: public}]) {
+type Usuario @model @auth(rules: [{allow: public}]) {
   id: ID!
   nome: String!
-  email: String!
-  compraID: ID! @index(name: "byCompra")
+  email: AWSEmail!
+  pagamentos: [Pagamento] @hasMany(indexName: "byUsuario", fields: ["id"])
+  grupos: [Grupo] @manyToMany(relationName: "GrupoUsuario")
+  despesas: [Despesa] @manyToMany(relationName: "DespesaUsuario")
 }
 
-type Compra @model @auth(rules: [{allow: public}]) {
+type Grupo @model @auth(rules: [{allow: public}]) {
   id: ID!
-  valorTotal: Float!
-  pagamentos: [Pagamento!] @hasMany(indexName: "byCompra", fields: ["id"])
-  participantes: [Participante!] @hasMany(indexName: "byCompra", fields: ["id"])
+  usuarios: [Usuario] @manyToMany(relationName: "GrupoUsuario")
+  despesas: [Despesa] @manyToMany(relationName: "GrupoDespesa")
+}
+
+type Despesa @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  pagamentos: [Pagamento!] @hasMany(indexName: "byDespesa", fields: ["id"])
+  usuarios: [Usuario!] @manyToMany(relationName: "DespesaUsuario")
+  grupos: [Grupo] @manyToMany(relationName: "GrupoDespesa")
 }
 
 type Pagamento @model @auth(rules: [{allow: public}]) {
   id: ID!
-  valorPago: Float
-  compraID: ID! @index(name: "byCompra")
-}
-
-type Blog @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String!
-  posts: [Post] @hasMany
-}
-
-type Post @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  title: String!
-  blog: Blog @belongsTo
-  comments: [Comment] @hasMany
-}
-
-type Comment @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  post: Post @belongsTo
-  content: String!
+  valorPago: Float!
+  despesaID: ID! @index(name: "byDespesa")
+  usuarioID: ID! @index(name: "byUsuario")
 }
  

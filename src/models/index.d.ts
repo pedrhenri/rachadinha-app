@@ -6,98 +6,102 @@ import { LazyLoading, LazyLoadingDisabled, AsyncCollection, AsyncItem } from "@a
 
 
 
-type EagerTodo = {
+type EagerUsuario = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Todo, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly name: string;
-  readonly description?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyTodo = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Todo, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly name: string;
-  readonly description?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Todo = LazyLoading extends LazyLoadingDisabled ? EagerTodo : LazyTodo
-
-export declare const Todo: (new (init: ModelInit<Todo>) => Todo) & {
-  copyOf(source: Todo, mutator: (draft: MutableModel<Todo>) => MutableModel<Todo> | void): Todo;
-}
-
-type EagerParticipante = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Participante, 'id'>;
+    identifier: ManagedIdentifier<Usuario, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
   readonly nome: string;
   readonly email: string;
-  readonly compraID: string;
+  readonly pagamentos?: (Pagamento | null)[] | null;
+  readonly grupos?: (GrupoUsuario | null)[] | null;
+  readonly despesas?: (DespesaUsuario | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-type LazyParticipante = {
+type LazyUsuario = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Participante, 'id'>;
+    identifier: ManagedIdentifier<Usuario, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
   readonly nome: string;
   readonly email: string;
-  readonly compraID: string;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Participante = LazyLoading extends LazyLoadingDisabled ? EagerParticipante : LazyParticipante
-
-export declare const Participante: (new (init: ModelInit<Participante>) => Participante) & {
-  copyOf(source: Participante, mutator: (draft: MutableModel<Participante>) => MutableModel<Participante> | void): Participante;
-}
-
-type EagerCompra = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Compra, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly valorTotal: number;
-  readonly pagamentos?: Pagamento[] | null;
-  readonly participantes?: Participante[] | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyCompra = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Compra, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly valorTotal: number;
   readonly pagamentos: AsyncCollection<Pagamento>;
-  readonly participantes: AsyncCollection<Participante>;
+  readonly grupos: AsyncCollection<GrupoUsuario>;
+  readonly despesas: AsyncCollection<DespesaUsuario>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-export declare type Compra = LazyLoading extends LazyLoadingDisabled ? EagerCompra : LazyCompra
+export declare type Usuario = LazyLoading extends LazyLoadingDisabled ? EagerUsuario : LazyUsuario
 
-export declare const Compra: (new (init: ModelInit<Compra>) => Compra) & {
-  copyOf(source: Compra, mutator: (draft: MutableModel<Compra>) => MutableModel<Compra> | void): Compra;
+export declare const Usuario: (new (init: ModelInit<Usuario>) => Usuario) & {
+  copyOf(source: Usuario, mutator: (draft: MutableModel<Usuario>) => MutableModel<Usuario> | void): Usuario;
+}
+
+type EagerGrupo = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Grupo, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly usuarios?: (GrupoUsuario | null)[] | null;
+  readonly despesas?: (GrupoDespesa | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyGrupo = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Grupo, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly usuarios: AsyncCollection<GrupoUsuario>;
+  readonly despesas: AsyncCollection<GrupoDespesa>;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Grupo = LazyLoading extends LazyLoadingDisabled ? EagerGrupo : LazyGrupo
+
+export declare const Grupo: (new (init: ModelInit<Grupo>) => Grupo) & {
+  copyOf(source: Grupo, mutator: (draft: MutableModel<Grupo>) => MutableModel<Grupo> | void): Grupo;
+}
+
+type EagerDespesa = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Despesa, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly pagamentos?: Pagamento[] | null;
+  readonly usuarios?: DespesaUsuario[] | null;
+  readonly grupos?: (GrupoDespesa | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyDespesa = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Despesa, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly pagamentos: AsyncCollection<Pagamento>;
+  readonly usuarios: AsyncCollection<DespesaUsuario>;
+  readonly grupos: AsyncCollection<GrupoDespesa>;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Despesa = LazyLoading extends LazyLoadingDisabled ? EagerDespesa : LazyDespesa
+
+export declare const Despesa: (new (init: ModelInit<Despesa>) => Despesa) & {
+  copyOf(source: Despesa, mutator: (draft: MutableModel<Despesa>) => MutableModel<Despesa> | void): Despesa;
 }
 
 type EagerPagamento = {
@@ -106,8 +110,9 @@ type EagerPagamento = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly valorPago?: number | null;
-  readonly compraID: string;
+  readonly valorPago: number;
+  readonly despesaID: string;
+  readonly usuarioID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -118,8 +123,9 @@ type LazyPagamento = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly valorPago?: number | null;
-  readonly compraID: string;
+  readonly valorPago: number;
+  readonly despesaID: string;
+  readonly usuarioID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -130,98 +136,104 @@ export declare const Pagamento: (new (init: ModelInit<Pagamento>) => Pagamento) 
   copyOf(source: Pagamento, mutator: (draft: MutableModel<Pagamento>) => MutableModel<Pagamento> | void): Pagamento;
 }
 
-type EagerBlog = {
+type EagerGrupoUsuario = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Blog, 'id'>;
+    identifier: ManagedIdentifier<GrupoUsuario, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly name: string;
-  readonly posts?: (Post | null)[] | null;
+  readonly usuarioId?: string | null;
+  readonly grupoId?: string | null;
+  readonly usuario: Usuario;
+  readonly grupo: Grupo;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-type LazyBlog = {
+type LazyGrupoUsuario = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Blog, 'id'>;
+    identifier: ManagedIdentifier<GrupoUsuario, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly name: string;
-  readonly posts: AsyncCollection<Post>;
+  readonly usuarioId?: string | null;
+  readonly grupoId?: string | null;
+  readonly usuario: AsyncItem<Usuario>;
+  readonly grupo: AsyncItem<Grupo>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-export declare type Blog = LazyLoading extends LazyLoadingDisabled ? EagerBlog : LazyBlog
+export declare type GrupoUsuario = LazyLoading extends LazyLoadingDisabled ? EagerGrupoUsuario : LazyGrupoUsuario
 
-export declare const Blog: (new (init: ModelInit<Blog>) => Blog) & {
-  copyOf(source: Blog, mutator: (draft: MutableModel<Blog>) => MutableModel<Blog> | void): Blog;
+export declare const GrupoUsuario: (new (init: ModelInit<GrupoUsuario>) => GrupoUsuario) & {
+  copyOf(source: GrupoUsuario, mutator: (draft: MutableModel<GrupoUsuario>) => MutableModel<GrupoUsuario> | void): GrupoUsuario;
 }
 
-type EagerPost = {
+type EagerDespesaUsuario = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Post, 'id'>;
+    identifier: ManagedIdentifier<DespesaUsuario, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly title: string;
-  readonly blog?: Blog | null;
-  readonly comments?: (Comment | null)[] | null;
+  readonly usuarioId?: string | null;
+  readonly despesaId?: string | null;
+  readonly usuario: Usuario;
+  readonly despesa: Despesa;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly blogPostsId?: string | null;
 }
 
-type LazyPost = {
+type LazyDespesaUsuario = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Post, 'id'>;
+    identifier: ManagedIdentifier<DespesaUsuario, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly title: string;
-  readonly blog: AsyncItem<Blog | undefined>;
-  readonly comments: AsyncCollection<Comment>;
+  readonly usuarioId?: string | null;
+  readonly despesaId?: string | null;
+  readonly usuario: AsyncItem<Usuario>;
+  readonly despesa: AsyncItem<Despesa>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly blogPostsId?: string | null;
 }
 
-export declare type Post = LazyLoading extends LazyLoadingDisabled ? EagerPost : LazyPost
+export declare type DespesaUsuario = LazyLoading extends LazyLoadingDisabled ? EagerDespesaUsuario : LazyDespesaUsuario
 
-export declare const Post: (new (init: ModelInit<Post>) => Post) & {
-  copyOf(source: Post, mutator: (draft: MutableModel<Post>) => MutableModel<Post> | void): Post;
+export declare const DespesaUsuario: (new (init: ModelInit<DespesaUsuario>) => DespesaUsuario) & {
+  copyOf(source: DespesaUsuario, mutator: (draft: MutableModel<DespesaUsuario>) => MutableModel<DespesaUsuario> | void): DespesaUsuario;
 }
 
-type EagerComment = {
+type EagerGrupoDespesa = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Comment, 'id'>;
+    identifier: ManagedIdentifier<GrupoDespesa, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly post?: Post | null;
-  readonly content: string;
+  readonly grupoId?: string | null;
+  readonly despesaId?: string | null;
+  readonly grupo: Grupo;
+  readonly despesa: Despesa;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly postCommentsId?: string | null;
 }
 
-type LazyComment = {
+type LazyGrupoDespesa = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Comment, 'id'>;
+    identifier: ManagedIdentifier<GrupoDespesa, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly post: AsyncItem<Post | undefined>;
-  readonly content: string;
+  readonly grupoId?: string | null;
+  readonly despesaId?: string | null;
+  readonly grupo: AsyncItem<Grupo>;
+  readonly despesa: AsyncItem<Despesa>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly postCommentsId?: string | null;
 }
 
-export declare type Comment = LazyLoading extends LazyLoadingDisabled ? EagerComment : LazyComment
+export declare type GrupoDespesa = LazyLoading extends LazyLoadingDisabled ? EagerGrupoDespesa : LazyGrupoDespesa
 
-export declare const Comment: (new (init: ModelInit<Comment>) => Comment) & {
-  copyOf(source: Comment, mutator: (draft: MutableModel<Comment>) => MutableModel<Comment> | void): Comment;
+export declare const GrupoDespesa: (new (init: ModelInit<GrupoDespesa>) => GrupoDespesa) & {
+  copyOf(source: GrupoDespesa, mutator: (draft: MutableModel<GrupoDespesa>) => MutableModel<GrupoDespesa> | void): GrupoDespesa;
 }
