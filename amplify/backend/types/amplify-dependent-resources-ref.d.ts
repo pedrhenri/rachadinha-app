@@ -16,13 +16,5 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolId": "string",
       "UserPoolName": "string"
     }
-  },
-  "hosting": {
-    "S3AndCloudFront": {
-      "HostingBucketName": "string",
-      "Region": "string",
-      "S3BucketSecureURL": "string",
-      "WebsiteURL": "string"
-    }
   }
 }

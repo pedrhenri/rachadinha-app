@@ -44,9 +44,6 @@
       },
       "api": {
         "rachadinha": {}
-      },
-      "hosting": {
-        "S3AndCloudFront": {}
       }
     }
   },
